@@ -30,12 +30,5 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
-        # 1. Pull any new changes you pushed from VS Code first
-        git pull origin main --rebase
-        
-        # 2. Stage the newly generated data file
         git add crypto_data.csv
-        
-        # 3. Only commit and push if new data actually exists
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated daily log: $(date +'%Y-%m-%d')" && git push origin main)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated daily log: $(date +'%Y-%m-%d')" && git pull --rebase origin main && git push)
