@@ -28,7 +28,7 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "ausx-x"
+        git config --global user.email "225051659+ausx-x@users.noreply.github.com"
         git add crypto_data.csv
         git diff --quiet && git diff --staged --quiet || (git commit -m "Automated daily log: $(date +'%Y-%m-%d')" && git pull --rebase origin main && git push)
